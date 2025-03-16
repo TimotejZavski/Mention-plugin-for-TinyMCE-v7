@@ -2,6 +2,8 @@
 
 A free and open-source mention plugin for TinyMCE v7 that supports rich citations with customizable formatting styles.
 
+https://github.com/user-attachments/assets/e3c0caf3-df2d-43c5-9b41-0fd3572a16fb
+
 ## Features
 
 - Smart inline citations with detailed hover previews
