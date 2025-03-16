@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinyMCE v7 Mention Plugin - Use Cases</title>
+    <script src="tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="Data/data-harvard.json"></script>
+    <script src="Data/data-apa7.js"></script>
+    <!-- Using Popper.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="style-demo.css">
+    
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Basic Mention Example
+            tinymce.init({
+                selector: '#basic-example',
+                plugins: 'mention',
+                height: 250,
+                menubar: false,
+                toolbar: 'undo redo | formatselect | bold italic',
+                content_style: `
+                    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+                    .mention-name { background-color: #e8f4f8; border: 1px solid #6ab0de; border-radius: 3px; padding: 2px 4px; color: #2980b9; cursor: pointer; }
+                `,
+                mention: {
+                    citationFormat: 'harvard'
+                }
+            });
+            
+            // Custom Styling Example
+            tinymce.init({
+                selector: '#custom-styling',
+                plugins: 'mention',
+                height: 250,
+                menubar: false,
+                toolbar: 'undo redo | formatselect | bold italic',
+                content_style: `
+                    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+                    .mention-name { 
+                        background-color: #f5edf0; 
+                        border: 1px solid #d68fb0; 
+                        border-radius: 5px; 
+                        padding: 2px 6px; 
+                        color: #a83b72; 
+                        cursor: pointer;
+                        font-weight: bold;
+                    }
+                `,
+                mention: {
+                    citationFormat: 'harvard'
+                }
+            });
+            
+            // APA7 Format Example
+            tinymce.init({
+                selector: '#apa7-example',
+                plugins: 'mention',
+                height: 250,
+                menubar: false,
+                toolbar: 'undo redo | formatselect | bold italic',
+                content_style: `
+                    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+                    .mention-name { background-color: #edf5ed; border: 1px solid #8fd69c; border-radius: 3px; padding: 2px 4px; color: #3ba85e; cursor: pointer; }
+                `,
+                mention: {
+                    citationFormat: 'apa7'
+                }
+            });
+            
+            // Advanced Configuration Example
+            tinymce.init({
+                selector: '#advanced-example',
+                plugins: 'mention lists advlist',
+                height: 250,
+                menubar: true,
+                toolbar: 'undo redo | formatselect | bold italic | bullist numlist | outdent indent',
+                content_style: `
+                    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+                    .mention-name { 
+                        background-color: #f0f5fd; 
+                        border: 1px solid #8fb8d6; 
+                        border-radius: 3px; 
+                        padding: 2px 4px; 
+                        color: #2c6ea8; 
+                        cursor: pointer;
+                        position: relative;
+                    }
+                    .mention-name:hover::after {
+                        content: '⚡';
+                        position: absolute;
+                        right: -5px;
+                        top: -5px;
+                        font-size: 10px;
+                    }
+                `,
+                mention: {
+                    citationFormat: 'harvard',
+                    highlightOnHover: true,
+                    customClass: 'advanced-mention'
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>TinyMCE v7 Mention Plugin - Use Cases</h1>
+        <div class="description">
+            This demo page showcases different use cases and configurations for the Mention plugin.
+        </div>
+
+        <section class="demo-section">
+            <h2>Basic Usage - Harvard Citations</h2>
+            <div class="instructions">
+                <p>Type <strong>@</strong> to trigger the citation menu and select a source.</p>
+            </div>
+            <textarea id="basic-example">Try typing @ to add a Harvard citation to your text. Our demo includes various types of sources.</textarea>
+        </section>
+
+        <section class="demo-section">
+            <h2>Custom Styling Example</h2>
+            <div class="instructions">
+                <p>Same functionality with custom styling for the mention elements.</p>
+            </div>
+            <textarea id="custom-styling">Type @ to see mentions with custom styling applied. Notice the different colors and formatting.</textarea>
+        </section>
+
+        <section class="demo-section">
+            <h2>APA7 Citation Format</h2>
+            <div class="instructions">
+                <p>This example uses APA7 citation format instead of Harvard.</p>
+            </div>
+            <textarea id="apa7-example">Type @ to add an APA7 style citation to your document.</textarea>
+        </section>
+
+        <section class="demo-section">
+            <h2>Advanced Configuration</h2>
+            <div class="instructions">
+                <p>This example includes additional features like enhanced hover effects, additional plugins, and custom styling.</p>
+                <ul>
+                    <li>Full menu bar options</li>
+                    <li>List formatting capabilities</li>
+                    <li>Special hover effects on citations</li>
+                    <li>Additional styling customizations</li>
+                </ul>
+            </div>
+            <textarea id="advanced-example">Type @ to add a citation with advanced styling and configuration. Try hovering over the citation to see the special effects.</textarea>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <span>Created with ❤️ by Timotej Zavski | Free and Open Source</span>
+    </footer>
+</body>
+</html> 

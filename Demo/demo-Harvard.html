@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinyMCE v7 Harvard Citation Plugin</title>
+    <script src="tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="./Data/data-apa7.js"></script>
+    <!-- Using Popper.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="style-demo.css">
+    
+    <script type="text/javascript">
+        // Initialize TinyMCE with the mention plugin
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if mentionData is already available globally (from data-apa7.js)
+            if (window.mentionData === undefined) {
+                console.error('Citation data not found, make sure data-apa7.js is loaded properly');
+            } else {
+                console.log('Using citation data:', window.mentionData.length, 'items');
+            }
+            
+            // Initialize TinyMCE
+            tinymce.init({
+                selector: '#mytextarea',
+                plugins: 'mention',
+                width: '100%',
+                height: 400,
+                menubar: false,
+                toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist',
+                content_style: `
+                    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+                    .mention-name { background-color: var(--secondary-color); border: 1px solid var(--primary-color); border-radius: 3px; padding: 2px 4px; color: var(--primary-color); cursor: pointer; }
+                `,
+                mention: {
+                    citationFormat: 'harvard'
+                }
+            });
+        });
+    </script>
+</head>
+<body class="harvard-theme">
+    <div class="container">
+        <h1>TinyMCE v7 Harvard Citation Plugin</h1>
+        <div class="description">
+            A powerful citation plugin that generates Harvard style citations with hover tooltips. Perfect for academic writing and research papers.
+        </div>
+
+        <div class="instructions">
+            <h3>How to Use</h3>
+            <ul>
+                <li>Type <strong>@</strong> to trigger the citation menu</li>
+                <li>Select a source from the dropdown</li>
+                <li>A short citation (Author, Year) will be inserted</li>
+                <li>Hover over any citation to see the full Harvard style format</li>
+                <li>Citations are automatically formatted based on their source type following Harvard guidelines</li>
+            </ul>
+        </div>
+
+        <form method="post">
+            <textarea id="mytextarea">Try typing @ to add a Harvard citation to your text. Our demo includes various types of sources: articles, books, conference papers, websites, and reports. Each citation follows the Harvard style format guidelines.</textarea>
+        </form>
+    </div>
+    <footer class="footer">
+        <span>Created with ❤️ by Timotej Zavski | Free and Open Source</span>
+    </footer>
+</body>
+</html>
