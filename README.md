@@ -151,4 +151,4 @@ Check out these demo files to see the plugin in action:
 
 This project is MIT licensed - free to use in both personal and commercial projects.
 
-Created by Timotej Zavski
+Created by Timotej Žavski
