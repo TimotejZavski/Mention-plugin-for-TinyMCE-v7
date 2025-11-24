@@ -149,6 +149,6 @@ Check out these demo files to see the plugin in action:
 
 ## License
 
-This project is MIT licensed - free to use in both personal and commercial projects.
+This project is WTFPL licensed
 
-Created by Timotej Žavski
+Created by Raca
